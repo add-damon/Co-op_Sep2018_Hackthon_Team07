@@ -2,4 +2,17 @@ table {
   width: 100%;
   margin: 0 auto;
   text-align: center;
+  border-collapse: collapse;
+}
+
+thead tr, table tbody tr:nth-child(even) {
+  background-color: lightblue;
+}
+
+tbody tr:hover {
+  cursor: pointer;
+}
+
+span.triangles {
+  padding-left: .5em;
 }

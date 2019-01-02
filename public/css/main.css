@@ -2,3 +2,12 @@
     padding-left: 18px;
     padding-right: 18px;
 }
+
+/* .row > div {
+    height: 500px;
+} */
+
+#main2 {
+    background-image: url("../css/main/find.jpg");
+    background-size: cover;
+}

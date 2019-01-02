@@ -3,11 +3,24 @@
     padding-right: 18px;
 }
 
-/* .row > div {
-    height: 500px;
-} */
+#main1 > h1 {
+    margin-top: 150px;
+}
+
+#main2 > h1 {
+    margin-top: 150px;
+}
+
+#main1 {
+    background-image: url("../css/main/create.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 600px;
+}
 
 #main2 {
     background-image: url("../css/main/find.jpg");
     background-size: cover;
+    background-position: center;
+    height: 600px;
 }

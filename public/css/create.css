@@ -10,3 +10,8 @@ label {
     display: block;
     margin: 10px;
 }
+
+.navbar-nav > li{
+    padding-left: 18px;
+    padding-right: 18px;
+}

@@ -15,11 +15,7 @@ $(function() {
         groupEmail: snapshot.child('email').val(),
         groupLocation: snapshot.child('location').val(),
         groupMax: snapshot.child('max').val(),
-<<<<<<< HEAD
-        groupCategory: snapshot.child('type').val(),
-=======
         groupType: snapshot.child('type').val(),
->>>>>>> eb28cf9d93c0bb366e45397492b932795e48a194
       };
       addRow(groupInfo);
     });

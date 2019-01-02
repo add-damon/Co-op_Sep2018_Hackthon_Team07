@@ -48,6 +48,9 @@ $(function() {
     var td_button = $('<td></td>');
     td_button.html('<button>Request</button>');
     newRow.append(td_button);
+
   }
+
+
   
 });

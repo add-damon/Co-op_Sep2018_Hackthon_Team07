@@ -4,6 +4,7 @@ let groupsFirebaseRef = firebase.database().ref('groups/');
 function createGroupInformation() {
     // Create the object to hold all the information
     let groupInfo = new Object();
+    let nameObj = new Object();
 
     let groupName = document.getElementById('group-name').value;
     let location = document.getElementById('location').value;
@@ -15,25 +16,31 @@ function createGroupInformation() {
     // console.log(email);
     // console.log(maxNumber);
 
-    groupInfo.name = groupName;
-    groupInfo.location = location;
-    groupInfo.email = email;
-    groupInfo.max = maxNumber;
+    nameObj.location = location;
+    nameObj.email = email;
+    nameObj.max = maxNumber;
+
+    groupInfo[groupName] = nameObj;
+
+    return groupInfo;
 }
 
 function addGroupToFirebase(obj) {
-    groupsFirebaseRef.on('value', function (snapshot) {
-        console.log(snapshot.val());
-    })
+    groupsFirebaseRef.update(obj);
 
 }
-
-addGroupToFirebase();
 
 // Add onclick function to submit button
 document.getElementById('submit-button').onclick = function() {
-    createGroupInformation();
-}
+    let groupObj = createGroupInformation();
+    setTimeout(function () {
+        addGroupToFirebase(groupObj);
+        alert('You have successfully added a group!');
+    }, 200);
+    setTimeout(function () {
+        window.location.href = 'find.html';
+    }, 400);
+}   
 
 
 

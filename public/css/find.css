@@ -16,3 +16,8 @@ tbody tr:hover {
 span.triangles {
   padding-left: .5em;
 }
+
+.navbar-nav > li{
+  padding-left: 18px;
+  padding-right: 18px;
+}

@@ -2,7 +2,7 @@
 .jumbotron{
     
     background-image: url(cook.jpg);
-    color:white;
+    color: black;
     height:100%;
     background-size:cover;
     background-repeat:no-repeat;
@@ -15,4 +15,31 @@
 .lead2 {
     display:inline-block;
     margin-left:10px;
+}
+
+.navbar-expand-lg{
+    
+    
+
+}
+
+.navbar-brand {
+    float:left;
+   
+    color:red;
+}
+
+#logo {
+    
+    width:50px;
+    height:50px;
+    background-image:url(logo.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    margin-right:10px;
+    float:left;
+}
+
+.my-4 {
+    border-color: black;
 }

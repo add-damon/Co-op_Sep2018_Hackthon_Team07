@@ -3,6 +3,10 @@
     padding-right: 18px;
 }
 
+.row {
+    margin-right: 0;
+}
+
 #main1 > h1 {
     margin-top: 150px;
 }

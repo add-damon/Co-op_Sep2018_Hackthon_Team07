@@ -15,6 +15,7 @@ $(function() {
         groupEmail: snapshot.child('email').val(),
         groupLocation: snapshot.child('location').val(),
         groupMax: snapshot.child('max').val(),
+        groupCategory: snapshot.child('type').val(),
       };
       console.log(groupInfo);
       addRow(groupInfo);
@@ -40,5 +41,10 @@ $(function() {
     var td_max = $('<td></td>');
     td_max.text(info.groupMax);
     newRow.append(td_max);
+
+    var td_category = $('<td></td>');
+    td_category.text(info.groupCategory);
+    newRow.append(td_max);
+    
   }
 });

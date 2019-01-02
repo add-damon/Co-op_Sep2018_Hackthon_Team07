@@ -1,0 +1,12 @@
+input {
+    padding: 3px;
+}
+
+label {
+    padding: 3px;
+}
+
+#description {
+    display: block;
+    margin: 10px;
+}

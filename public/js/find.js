@@ -44,6 +44,10 @@ $(function() {
     var td_max = $('<td></td>');
     td_max.text(info.groupMax);
     newRow.append(td_max);
+
+    var td_button = $('<td></td>');
+    td_button.html('<button>Request</button>');
+    newRow.append(td_button);
   }
   
 });

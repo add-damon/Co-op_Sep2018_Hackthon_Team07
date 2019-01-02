@@ -16,6 +16,7 @@ $(function() {
         groupLocation: snapshot.child('location').val(),
         groupMax: snapshot.child('max').val(),
         groupType: snapshot.child('type').val(),
+        groupEmail: snapshot.child('email').val(),
       };
       addRow(groupInfo);
     });
@@ -49,10 +50,16 @@ $(function() {
     td_category.text(info.groupCategory);
     newRow.append(td_max);
 
-
     var td_button = $('<td></td>');
     td_button.html('<button>Request</button>');
+    td_button.click(function () {
+      window.open('mailto:' + info.groupEmail);
+    });
     newRow.append(td_button);
+
+    // newRow.click(function() {
+    //   turnOnOverlay();
+    // })
   }
   
 });

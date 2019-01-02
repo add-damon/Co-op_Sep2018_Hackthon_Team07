@@ -13,6 +13,12 @@ function createGroupInformation() {
     let type = document.getElementById('type').value;
     let description = document.getElementById('description').value;
 
+    let date = new Date();
+
+    let dd = date.getDay();
+    let mm = date.getMonth() + 1;
+    let yyyy = date.getFullYear();
+
     // console.log(groupName);
     // console.log(location);
     // console.log(email);
@@ -23,7 +29,7 @@ function createGroupInformation() {
     nameObj.max = maxNumber;
     nameObj.type = type;
     nameObj.description = description;
-
+    nameObj.date = dd + '/' + mm + '/' + yyyy;
     groupInfo[groupName] = nameObj;
 
     return groupInfo;

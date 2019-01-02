@@ -16,3 +16,30 @@
     display:inline-block;
     margin-left:10px;
 }
+
+.navbar-expand-lg{
+    
+    
+
+}
+
+.navbar-brand {
+    float:left;
+    display:inline-block;
+    color:red;
+}
+
+#logo {
+    
+    width:50px;
+    height:50px;
+    background-image:url(logo.png);
+    background-size:cover;
+    background-repeat:no-repeat;
+    margin-right:10px;
+    float:left;
+}
+
+.my-4 {
+    border-color: white;
+}

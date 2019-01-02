@@ -48,7 +48,20 @@ $(function() {
     var td_category = $('<td></td>');
     td_category.text(info.groupCategory);
     newRow.append(td_max);
-    
+
+
   }
   
 });
+
+function turnOnOverlay() {
+  document.getElementById('overlay').style.display = 'block';
+}
+
+function turnOffOverlay() {
+  document.getElementById('overlay').style.display = 'none';
+}
+
+document.getElementById('overlay').onclick = function () {
+  turnOffOverlay();
+}

@@ -10,6 +10,8 @@ function createGroupInformation() {
     let location = document.getElementById('location').value;
     let email = document.getElementById('email').value;
     let maxNumber = document.getElementById('max').value;
+    let type = document.getElementById('type').value;
+    let description = document.getElementById('description').value;
 
     // console.log(groupName);
     // console.log(location);
@@ -19,6 +21,8 @@ function createGroupInformation() {
     nameObj.location = location;
     nameObj.email = email;
     nameObj.max = maxNumber;
+    nameObj.type = type;
+    nameObj.description = description;
 
     groupInfo[groupName] = nameObj;
 

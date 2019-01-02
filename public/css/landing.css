@@ -1,0 +1,18 @@
+
+.jumbotron{
+    
+    background-image: url(cook.jpg);
+    color:white;
+    height:100%;
+    background-size:cover;
+    background-repeat:no-repeat;
+    height: 100vh;
+}
+
+.lead {
+    display:inline-block;
+}
+.lead2 {
+    display:inline-block;
+    margin-left:10px;
+}

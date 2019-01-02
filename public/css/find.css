@@ -17,6 +17,7 @@ span.triangles {
   padding-left: .5em;
 }
 
+<<<<<<< HEAD
 #overlay {
   position: fixed;
   display: none;
@@ -29,4 +30,9 @@ span.triangles {
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
   cursor: pointer;
+=======
+.navbar-nav > li{
+  padding-left: 18px;
+  padding-right: 18px;
+>>>>>>> 4831d590d99c6b03676298d3df181c5346b87891
 }

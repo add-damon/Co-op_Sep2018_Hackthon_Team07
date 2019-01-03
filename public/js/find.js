@@ -77,46 +77,49 @@ $(function () {
     newRow.append(td_button);
   }
 
+  function turnOnOverlay() {
+    document.getElementById('overlay').style.display = 'block';
+  }
+  
+  function turnOffOverlay() {
+    document.getElementById('overlay').style.display = 'none';
+  }
+  
+  // for specific group
+  function readPostFirebaseInfo(name) {
+  
+    //console.log('groups/' + name);
+    firebase.database().ref('groups/' + name).on('value', function (snapshot) {
+      let postInfo = {
+        postName: name,
+        postEmail: snapshot.child('email').val(),
+        postLocation: snapshot.child('location').val(),
+        postMax: snapshot.child('max').val(),
+        postType: snapshot.child('type').val(),
+        postTime: snapshot.child('time').val(),
+        postDay: snapshot.child('day').val(),
+        postDiet: snapshot.child('type').val(),
+        postDescription: snapshot.child('description').val(),
+      };
+  
+      document.getElementById('group-name').innerHTML = postInfo.postName;
+      document.getElementById('location').innerHTML = postInfo.postLocation;
+      document.getElementById('diet-type').innerHTML = postInfo.postDiet;
+      document.getElementById('meeting-days').innerHTML = postInfo.postDay + 's';
+      document.getElementById('meeting-time').innerHTML = postInfo.postTime;
+      document.getElementById('limit').innerHTML = postInfo.postMax;
+      document.getElementById('description').innerHTML = postInfo.postDescription;
+      document.getElementById('members').innerHTML = 'Members:';
+    });
+  }
+  
+  document.getElementById('overlay').onclick = function () {
+    turnOffOverlay();
+  };
+
+
 });
 
-function turnOnOverlay() {
-  document.getElementById('overlay').style.display = 'block';
-}
 
-function turnOffOverlay() {
-  document.getElementById('overlay').style.display = 'none';
-}
-
-// for specific group
-function readPostFirebaseInfo(name) {
-
-  //console.log('groups/' + name);
-  firebase.database().ref('groups/' + name).on('value', function (snapshot) {
-    let postInfo = {
-      postName: name,
-      postEmail: snapshot.child('email').val(),
-      postLocation: snapshot.child('location').val(),
-      postMax: snapshot.child('max').val(),
-      postType: snapshot.child('type').val(),
-      postTime: snapshot.child('time').val(),
-      postDay: snapshot.child('day').val(),
-      postDiet: snapshot.child('type').val(),
-      postDescription: snapshot.child('description').val(),
-    };
-
-    document.getElementById('group-name').innerHTML = postInfo.postName;
-    document.getElementById('location').innerHTML = postInfo.postLocation;
-    document.getElementById('diet-type').innerHTML = postInfo.postDiet;
-    document.getElementById('meeting-days').innerHTML = postInfo.postDay + 's';
-    document.getElementById('meeting-time').innerHTML = postInfo.postTime;
-    document.getElementById('limit').innerHTML = postInfo.postMax;
-    document.getElementById('description').innerHTML = postInfo.postDescription;
-    document.getElementById('members').innerHTML = 'Members:'
-  });
-}
-
-document.getElementById('overlay').onclick = function () {
-  turnOffOverlay();
-}
 
 

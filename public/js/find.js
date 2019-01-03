@@ -4,11 +4,11 @@ $(function() {
   database.ref('groups/').once('value').then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       let groupName = childSnapshot.key;
-      displayGroupInfo(groupName);
+      getGroupInfo(groupName);
     });
   });
 
-  function displayGroupInfo(name) {
+  function getGroupInfo(name) {
     database.ref('groups/' + name).once('value').then(function(snapshot) {
       let groupInfo = {
         groupName: name,
@@ -67,8 +67,6 @@ $(function() {
     newRow.append(td_button);
 
   }
-
-  
 });
 
 function turnOnOverlay() {

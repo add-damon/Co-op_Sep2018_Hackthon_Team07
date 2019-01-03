@@ -23,7 +23,7 @@ $( document ).ready(function() {
             } else {
                 sessionStorage.removeItem('userInfo');
                 // Page is redirected.
-                window.location.href='/html/main.html';
+                window.location.href='../html/landing.html';
             }
         }, function(error) {
             console.log(error);
@@ -39,8 +39,19 @@ $( document ).ready(function() {
         var promise = firebase.auth().signOut();
         promise.then(function(){
             sessionStorage.removeItem('userInfo');
-            window.location.href='/html/main.html';
+            window.location.href='/html/landing.html';
         });
     });
 
 });
+
+function signOut () {
+    firebase.auth().signOut().then(function() {
+        console.log('Signed Out');
+        window.location.href = '/html/landing.html';
+      }, function(error) {
+        console.error('Sign Out Error', error);
+      });
+}
+
+document.getElementById('sign-out').onclick = signOut;

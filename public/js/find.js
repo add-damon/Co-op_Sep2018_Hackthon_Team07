@@ -38,7 +38,7 @@ $(function() {
 
       setTimeout(function() {turnOnOverlay();}, 200);
       
-    })
+    });
     
     td_name.id = info.groupName;
     newRow.append(td_name);
@@ -63,10 +63,6 @@ $(function() {
     td_date.text(info.groupDate);
     newRow.append(td_date);
 
-    // var td_email = $('<td></td>');
-    // td_email.text(info.groupEmail);
-    // newRow.append(td_email);
-
     var td_button = $('<td></td>');
     td_button.html('<button>Request</button>');
     td_button.click(function () {
@@ -76,8 +72,19 @@ $(function() {
 
   }
 
+  $('#sortByDateIcon').click(() => {
+    let orderByDateRef = database.ref('groups/').orderByChild('dateForOrder');
+    orderByDateRef.once('value').then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        let groupName = childSnapshot.key;
+        displayGroupInfo(groupName);
+      });
+    });
+  });
   
 });
+
+
 
 function turnOnOverlay() {
   document.getElementById('overlay').style.display = 'block';

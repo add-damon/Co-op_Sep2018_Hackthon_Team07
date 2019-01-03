@@ -15,6 +15,10 @@ span.triangles {
     padding-left: .5em;
 }
 
+span#sortByDateIcon:hover {
+    cursor: pointer;
+}
+
 #overlay {
     position: fixed;
     display: none;

@@ -11,6 +11,20 @@ $( document ).ready(function() {
             var uid = user.uid;
             var phoneNumber = user.phoneNumber;
             var providerData = user.providerData;
+
+            // 
+            firebase.database().ref("users/" + user.uid).update(
+                {
+                    uid: uid,
+                    name: displayName,
+                    email: email,
+                    phoneNumber: phoneNumber,
+                    photoURL: photoURL,
+                    emailVerified: emailVerified,
+                    providerData: providerData
+                });
+            // 
+
             user.getIdToken().then(function(accessToken) {
                 
                 //Save user info in Session Storage

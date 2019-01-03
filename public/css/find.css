@@ -33,17 +33,12 @@ span#sortByDateIcon:hover {
 }
 
 #overlay-container {
-    margin-top: 30vh;
+    margin-top: 20vh;
 }
 
 #overlay-container > table {
     width: auto;
 }
-
-/* #overlay-container > table > tbody > tr,
-#overlay-container > table > tbody > th {
-    border: none;
-} */
 
 .navbar-nav > li {
     padding-left: 18px;

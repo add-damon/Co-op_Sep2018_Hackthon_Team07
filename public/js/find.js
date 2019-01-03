@@ -89,7 +89,6 @@ function turnOffOverlay() {
 
 // for specific group
 function readPostFirebaseInfo (name) {
-  let groupName = document.getElementById('group-name');
 
   //console.log('groups/' + name);
   firebase.database().ref('groups/' + name).on('value', function (snapshot) {
@@ -100,10 +99,17 @@ function readPostFirebaseInfo (name) {
       postMax: snapshot.child('max').val(),
       postType: snapshot.child('type').val(),
       postTime: snapshot.child('time').val(),
-      postDate: snapshot.child('date').val(),
+      postDay: snapshot.child('day').val(),
+      postDiet: snapshot.child('type').val(),
+      postDescription: snapshot.child('description').val(),
     };
 
-    groupName.innerHTML = 'Group Name: ' + postInfo.postName;
+    document.getElementById('group-name').innerHTML = 'Group Name: ' + postInfo.postName;
+    document.getElementById('location').innerHTML = 'Location: ' + postInfo.postLocation;
+    document.getElementById('meeting-time').innerHTML = 'Meeting Time (24H Time): ' + postInfo.postDay + ' ' + postInfo.postTime;
+    document.getElementById('diet-type').innerHTML = 'Diet Type: ' + postInfo.postDiet;
+    document.getElementById('description').innerHTML = 'Description: ' + postInfo.postDescription;
+    document.getElementById('members').innerHTML = 'Members:'
   });
 
 }

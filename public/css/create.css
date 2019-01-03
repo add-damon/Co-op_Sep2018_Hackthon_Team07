@@ -40,3 +40,12 @@ label {
     margin-right: 10px;
     float: left;
 }
+
+#name {
+    color: black;
+    float: left;
+    text-align: left;
+    display: inline-block;
+    font-family: 'Kaushan Script', cursive;
+    font-size:18pt;
+}

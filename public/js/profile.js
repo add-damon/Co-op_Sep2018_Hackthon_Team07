@@ -78,7 +78,7 @@ setTimeout(function () {
         console.log(row.id);
 
         let cell1 = row.insertCell(0);
-        cell1.innerHTML = groupName;
+        cell1.innerHTML = groupNames[i];
 
         let cell2 = row.insertCell(1);
         let anchor = document.createElement('a');
@@ -128,7 +128,7 @@ setTimeout(function () {
         yourGroups.innerHTML = 'You are not the owner of any groups';
     }
 
-}, 1000);
+}}, 1000);
 
 function delFromFirebase(name) {
     let groupRef = firebase.database().ref('groups/');

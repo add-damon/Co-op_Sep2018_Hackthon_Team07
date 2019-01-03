@@ -78,10 +78,10 @@ setTimeout(function () {
             let row = yourGroups.insertRow(i);
             row.id = 'row' + i;
             console.log(row.id);
-    
+
             let cell1 = row.insertCell(0);
             cell1.innerHTML = groupNames[i];
-    
+
             let cell2 = row.insertCell(1);
             let anchor = document.createElement('a');
             anchor.innerHTML = 'edit';
@@ -91,14 +91,17 @@ setTimeout(function () {
             let cell3 = row.insertCell(2);
             let addMembers = document.createElement('button');
             addMembers.innerHTML = 'add member';
+            addMembers.onclick = function () {
+                turnOnOverlay();
+            }
             cell3.appendChild(addMembers);
-    
+
             let cell4 = row.insertCell(3);
             let delbutton = document.createElement('button');
             delbutton.innerHTML = 'del';
             delbutton.onclick = function () {
                 delFromFirebase(groupNames[i]);
-                setTimeout(function() {
+                setTimeout(function () {
                     let rowToBeRemoved = document.getElementById('row' + i);
                     console.log(rowToBeRemoved);
                     rowToBeRemoved.parentNode.removeChild(rowToBeRemoved);
@@ -116,5 +119,17 @@ function delFromFirebase(name) {
     let groupRef = firebase.database().ref('groups/');
     groupRef.child(name).remove();
 }
+
+// Add Member Feature
+
+function turnOnMemberBox() {
+    document.getElementById('addMemberDiv').style.display = 'block';
+}
+
+function turnOffMemberBox() {
+    document.getElementById('addMemberDiv').style.display = 'none';
+}
+
+document.getElementById('addMembersDiv').onclick = turnOffMemberBox;
 
 

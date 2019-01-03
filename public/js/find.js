@@ -70,8 +70,14 @@ $(function() {
       window.open('mailto:' + info.groupEmail);
     });
     newRow.append(td_button);
-
   }
+
+  $('#sign-out').click(function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    firebase.auth().signOut();
+    window.location.href = "./landing.html";
+  });
 });
 
 
@@ -114,3 +120,5 @@ function readPostFirebaseInfo (name) {
 document.getElementById('overlay').onclick = function () {
   turnOffOverlay();
 }
+
+

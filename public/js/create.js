@@ -89,5 +89,12 @@ function submitFunction () {
 
 document.getElementById('submit-button').onclick = submitFunction;
 
+document.getElementById('sign-out').addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    firebase.auth().signOut();
+    window.location.href = "./landing.html";
+  });
+
 
 

@@ -37,6 +37,7 @@ function createGroupInformation() {
     nameObj.type = type;
     nameObj.description = description;
     nameObj.date = dd + '/' + mm + '/' + yyyy;
+    nameObj.dateForOrder = '' + year + mm + dd;
     nameObj.day = day;
     nameObj.time = time;
 
@@ -68,7 +69,7 @@ document.getElementById('submit-button').onclick = function() {
     setTimeout(function () {
         window.location.href = 'find.html';
     }, 400);
-}   
+}
 
 
 

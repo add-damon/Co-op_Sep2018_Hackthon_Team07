@@ -37,7 +37,7 @@ function createGroupInformation() {
     nameObj.type = type;
     nameObj.description = description;
     nameObj.date = dd + '/' + mm + '/' + yyyy;
-    nameObj.dateForOrder = '' + year + mm + dd;
+    nameObj.dateForOrder = '' + yyyy + mm + dd;
     nameObj.day = day;
     nameObj.time = time;
 
@@ -51,25 +51,43 @@ function addGroupToFirebase(obj) {
 
 }
 
-// function hasValue(x) {
-//     if (x.value) {
-//         return true;
-//     }
-// }
+function hasValue(x) {
+    if (document.getElementById(x).value) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 // Add onclick function to submit button
-document.getElementById('submit-button').onclick = function() {
-    let ids = ['group-name', 'email', 'max'];
+function submitFunction () {
+    let ids = ['group-name', 'email', 'max', 'time', 'description'];
 
-    let groupObj = createGroupInformation();
-    setTimeout(function () {
-        addGroupToFirebase(groupObj);
-        alert('You have successfully added a group!');
-    }, 200);
-    setTimeout(function () {
-        window.location.href = 'find.html';
-    }, 400);
+    let booleanList = ids.map(hasValue);
+
+    let numberOfTrues = 0;
+
+    for (let i = 0; i < booleanList.length; i++) {
+        if (booleanList[i] === true) {
+            numberOfTrues += 1;
+        }
+    }
+
+    if (numberOfTrues === 5) {
+        let groupObj = createGroupInformation();
+        setTimeout(function () {
+            addGroupToFirebase(groupObj);
+            alert('You have successfully added a group!');
+        }, 200);
+        setTimeout(function () {
+            window.location.href = 'find.html';
+        }, 400);
+    } else {
+        alert('Please fill in all the forms');
+    }
 }
+
+document.getElementById('submit-button').onclick = submitFunction;
 
 
 

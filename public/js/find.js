@@ -28,6 +28,10 @@ $(function() {
 
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
+
+    td_name.click(function () {
+      turnOnOverlay();
+    })
     newRow.append(td_name);
 
     var td_email = $('<td></td>');
@@ -56,10 +60,6 @@ $(function() {
       window.open('mailto:' + info.groupEmail);
     });
     newRow.append(td_button);
-
-    // newRow.click(function() {
-    //   turnOnOverlay();
-    // })
   }
   
 });

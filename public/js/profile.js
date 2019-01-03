@@ -1,19 +1,19 @@
 // reference to the profile section of the database
 var userInfo = JSON.parse(sessionStorage.userInfo);
-let uid = userInfo.uid;
-let profileFirebaseRef = firebase.database().ref("users/" + uid);
+let uid = userInfo.uid.replace('\n', '');
+let profileFirebaseRef = firebase.database().ref("users/" + 'jlW30W7ieYYmZCDZQ33lmwYyL122');
 
 
 //Display current profile
 profileFirebaseRef.on(
     "value",
     function (snap) {
-        //console.log(JSON.stringify(snap.val()));
+        console.log(JSON.stringify(snap.val()));
 
-        // $("#user-name").val(snap.val().name);
-        // $("#email").val(snap.val().email);
-        // $("#phone").val(snap.val().phone);
-        // $("#description").val(snap.val().description);
+        $("#user-name").val(snap.val().name);
+        $("#email").val(snap.val().email);
+        $("#phone").val(snap.val().phone);
+        $("#description").val(snap.val().description);
     });
 
 function generateProfileInformation() {
@@ -58,9 +58,9 @@ let yourGroups = document.getElementById('your-groups');
 firebase.database().ref('groups/').on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
         let userEmail = childSnapshot.val().email;
-        console.log(userEmail);
+        // console.log(userEmail);
         if (userEmail === email) {
-            console.log('yo');
+            // console.log('yo');
             yourGroups.innerHTML = '';
             numberMatched += 1;
             groupName = childSnapshot.key;
@@ -70,8 +70,8 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
 
 // Create table elements if numberMatched is greater than 0
 setTimeout(function () {
-    console.log('hi')
-    console.log(numberMatched)
+    // console.log('hi')
+    // console.log(numberMatched)
     for (let i = 0; i < numberMatched; i++) {
         let row = yourGroups.insertRow(i);
         row.id = 'row' + i;

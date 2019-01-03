@@ -91,9 +91,6 @@ setTimeout(function () {
             let cell3 = row.insertCell(2);
             let addMembers = document.createElement('button');
             addMembers.innerHTML = 'add member';
-            addMembers.onclick = function () {
-                turnOnOverlay();
-            }
             cell3.appendChild(addMembers);
 
             let cell4 = row.insertCell(3);
@@ -121,15 +118,5 @@ function delFromFirebase(name) {
 }
 
 // Add Member Feature
-
-function turnOnMemberBox() {
-    document.getElementById('addMemberDiv').style.display = 'block';
-}
-
-function turnOffMemberBox() {
-    document.getElementById('addMemberDiv').style.display = 'none';
-}
-
-document.getElementById('addMembersDiv').onclick = turnOffMemberBox;
 
 

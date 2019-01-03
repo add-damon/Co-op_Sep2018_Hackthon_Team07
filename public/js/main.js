@@ -29,16 +29,6 @@ $( document ).ready(function() {
         console.log(error);
     });
     
-    
-    // Logout button listener
-    $("#logout").on("click", function(e) {
-        var promise = firebase.auth().signOut();
-        promise.then(function(){
-            sessionStorage.removeItem('userInfo');
-            window.location.href='/html/landing.html';
-        });
-    });
-
     function signOut () {
         firebase.auth().signOut().then(function() {
             console.log('Signed Out');

@@ -49,15 +49,16 @@ label {
     float: left;
 }
 
+.table {
+    margin: 0 auto;
+    width: 80vw;
+    margin-bottom: 10vw;
+}
 
+#group-container {
+    margin: 0 auto;
+}
 
-
-
-
-
-
-
-
-
-
-
+h2 {
+    margin: 3vw 0 2vw 10vw;
+}

@@ -83,19 +83,22 @@ setTimeout(function () {
             cell1.innerHTML = groupNames[i];
 
             let cell2 = row.insertCell(1);
-            let anchor = document.createElement('a');
-            anchor.innerHTML = 'edit';
+            let anchor = document.createElement('button');
+            anchor.className = 'btn btn-primary btn-sm';
+            anchor.innerHTML = 'Edit';
             anchor.href = 'https://www.google.com/';
             cell2.appendChild(anchor);
 
             let cell3 = row.insertCell(2);
             let addMembers = document.createElement('button');
-            addMembers.innerHTML = 'add member';
+            addMembers.className = 'btn btn-primary btn-sm';
+            addMembers.innerHTML = 'Add Member';
             cell3.appendChild(addMembers);
 
             let cell4 = row.insertCell(3);
             let delbutton = document.createElement('button');
-            delbutton.innerHTML = 'del';
+            delbutton.className = 'btn btn-primary btn-sm';
+            delbutton.innerHTML = 'Delete';
             delbutton.onclick = function () {
                 delFromFirebase(groupNames[i]);
                 setTimeout(function () {
@@ -106,8 +109,6 @@ setTimeout(function () {
             }
             cell4.appendChild(delbutton);
         }
-    } else {
-        yourGroups.innerHTML = 'You are not the owner of any groups';
     }
 
 }, 1000);

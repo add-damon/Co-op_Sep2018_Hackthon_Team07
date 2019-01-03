@@ -107,12 +107,19 @@ function readPostFirebaseInfo(name) {
       postDescription: snapshot.child('description').val(),
     };
 
-    document.getElementById('group-name').innerHTML = 'Group Name: ' + postInfo.postName;
-    document.getElementById('location').innerHTML = 'Location: ' + postInfo.postLocation;
-    document.getElementById('meeting-time').innerHTML = 'Meeting Time (24H Time): ' + postInfo.postDay + ' ' + postInfo.postTime;
-    document.getElementById('diet-type').innerHTML = 'Diet Type: ' + postInfo.postDiet;
-    document.getElementById('description').innerHTML = 'Description: ' + postInfo.postDescription;
+    document.getElementById('group-name').innerHTML = postInfo.postName;
+    document.getElementById('location').innerHTML = postInfo.postLocation;
+    document.getElementById('meeting-time').innerHTML = postInfo.postDay + ' ' + postInfo.postTime;
+    document.getElementById('diet-type').innerHTML = postInfo.postDiet;
+    document.getElementById('description').innerHTML = postInfo.postDescription;
     document.getElementById('members').innerHTML = 'Members:'
+
+    // document.getElementById('group-name').innerHTML = 'Group Name: ' + postInfo.postName;
+    // document.getElementById('location').innerHTML = 'Location: ' + postInfo.postLocation;
+    // document.getElementById('meeting-time').innerHTML = 'Meeting Time (24H Time): ' + postInfo.postDay + ' ' + postInfo.postTime;
+    // document.getElementById('diet-type').innerHTML = 'Diet Type: ' + postInfo.postDiet;
+    // document.getElementById('description').innerHTML = 'Description: ' + postInfo.postDescription;
+    // document.getElementById('members').innerHTML = 'Members:'
   });
 
 }

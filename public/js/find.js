@@ -1,14 +1,15 @@
 $(function() {
   const database = firebase.database();
 
-  database.ref('groups/').once('value').then(function(snapshot) {
+  let orderByDateRef = database.ref('groups/').orderByChild('dateForOrder');
+  orderByDateRef.once('value').then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       let groupName = childSnapshot.key;
-      displayGroupInfo(groupName);
+      getGroupInfo(groupName);
     });
   });
 
-  function displayGroupInfo(name) {
+  function getGroupInfo(name) {
     database.ref('groups/' + name).once('value').then(function(snapshot) {
       let groupInfo = {
         groupName: name,
@@ -22,10 +23,10 @@ $(function() {
       addRow(groupInfo);
     });
   }
-
+  
   function addRow(info) {
     var newRow = $('<tr></tr>');
-    $('#groupsInfo').append(newRow);
+    $('#groupsInfo').prepend(newRow);
 
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
@@ -71,17 +72,6 @@ $(function() {
     newRow.append(td_button);
 
   }
-
-  $('#sortByDateIcon').click(() => {
-    let orderByDateRef = database.ref('groups/').orderByChild('dateForOrder');
-    orderByDateRef.once('value').then(function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-        let groupName = childSnapshot.key;
-        displayGroupInfo(groupName);
-      });
-    });
-  });
-  
 });
 
 

@@ -22,7 +22,7 @@ function createGroupInformation() {
 
     let date = new Date();
 
-    let dd = date.getDay();
+    let dd = adjustTime(date.getDay());
     let mm = adjustTime(date.getMonth() + 1);
     let yyyy = date.getFullYear();
 
@@ -39,7 +39,7 @@ function createGroupInformation() {
     nameObj.date = dd + '/' + mm + '/' + yyyy;
     nameObj.day = day;
     nameObj.time = time;
-    
+
     groupInfo[groupName] = nameObj;
 
     return groupInfo;

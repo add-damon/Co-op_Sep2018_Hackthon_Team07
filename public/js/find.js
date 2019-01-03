@@ -4,11 +4,11 @@ $(function() {
   database.ref('groups/').once('value').then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       let groupName = childSnapshot.key;
-      getGroupInfo(groupName);
+      displayGroupInfo(groupName);
     });
   });
 
-  function getGroupInfo(name) {
+  function displayGroupInfo(name) {
     database.ref('groups/' + name).once('value').then(function(snapshot) {
       let groupInfo = {
         groupName: name,
@@ -31,10 +31,13 @@ $(function() {
     td_name.text(info.groupName);
 
     td_name.click(function () {
-      turnOnOverlay();
       window.sessionStorage.setItem("groupPost", td_name.id)
-      let x = window.sessionStorage.getItem("groupPost");
-      console.log(x);
+      let postName = window.sessionStorage.getItem("groupPost").replace('\n', '');
+
+      readPostFirebaseInfo(postName);
+
+      setTimeout(function() {turnOnOverlay();}, 200);
+      
     })
     
     td_name.id = info.groupName;
@@ -72,6 +75,8 @@ $(function() {
     newRow.append(td_button);
 
   }
+
+  
 });
 
 function turnOnOverlay() {
@@ -80,6 +85,27 @@ function turnOnOverlay() {
 
 function turnOffOverlay() {
   document.getElementById('overlay').style.display = 'none';
+}
+
+// for specific group
+function readPostFirebaseInfo (name) {
+  let groupName = document.getElementById('group-name');
+
+  //console.log('groups/' + name);
+  firebase.database().ref('groups/' + name).on('value', function (snapshot) {
+    let postInfo = {
+      postName: name,
+      postEmail: snapshot.child('email').val(),
+      postLocation: snapshot.child('location').val(),
+      postMax: snapshot.child('max').val(),
+      postType: snapshot.child('type').val(),
+      postTime: snapshot.child('time').val(),
+      postDate: snapshot.child('date').val(),
+    };
+
+    groupName.innerHTML = 'Group Name: ' + postInfo.postName;
+  });
+
 }
 
 document.getElementById('overlay').onclick = function () {

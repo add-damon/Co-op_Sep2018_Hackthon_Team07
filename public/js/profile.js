@@ -60,6 +60,8 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
         let userEmail = childSnapshot.val().email;
         // console.log(userEmail);
         if (userEmail === email) {
+            // console.log('yo');
+            yourGroups.innerHTML = '';
             numberMatched += 1;
             groupNames.push(childSnapshot.key);
         }
@@ -70,6 +72,24 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
 setTimeout(function () {
     // console.log('hi')
     // console.log(numberMatched)
+    for (let i = 0; i < numberMatched; i++) {
+        let row = yourGroups.insertRow(i);
+        row.id = 'row' + i;
+        console.log(row.id);
+
+        let cell1 = row.insertCell(0);
+        cell1.innerHTML = groupName;
+
+        let cell2 = row.insertCell(1);
+        let anchor = document.createElement('a');
+        anchor.innerHTML = 'edit';
+        anchor.href = 'https://www.google.com/';
+        cell2.appendChild(anchor);
+
+        let cell3 = row.insertCell(2);
+        let delbutton = document.createElement('button');
+        delbutton.innerHTML = 'del';
+        cell3.appendChild(delbutton);
 
     if (numberMatched > 0) {
         for (let i = 0; i < numberMatched; i++) {

@@ -60,7 +60,9 @@ $(function() {
       window.open('mailto:' + info.groupEmail);
     });
     newRow.append(td_button);
+
   }
+
   
 });
 

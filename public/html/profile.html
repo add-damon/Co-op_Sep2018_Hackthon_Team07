@@ -74,7 +74,7 @@
 
             <div id='description-box' class="form-row">
                 <label>Description</label>
-                <textarea id='description' class="form-control" cols='80' rows='6' placeholder="Description:"></textarea>
+                <textarea id='description' class="form-control" cols='80' rows='6' placeholder="About me"></textarea>
             </div>
 
             <a class="btn btn-primary" href=# id="submit-button" role="button">Update</a>
@@ -82,12 +82,24 @@
     </div>
 
     <hr />
-    <h2>Your Groups</h2>
-    <div>
-        <table id='your-groups'></table>
-    </div>
 
-    <div id='addMemberDiv'></div>
+    <div id="group-container">
+        <h2>Manage Your Groups</h2>
+        <div>
+            <table class="table">
+                <thead>
+                    <th>Group Name</th>
+                    <th>Edit</th>
+                    <th>Add Members</th>
+                    <th>Delete Groups</th>
+                </thead>
+                <tbody id='your-groups'>
+                </tbody>
+            </table>
+        </div>
+
+        <div id='addMemberDiv'></div>
+    </div>
 
 
     <!-- Firebase App is always required and must be first -->

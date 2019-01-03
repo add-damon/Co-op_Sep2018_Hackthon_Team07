@@ -48,6 +48,7 @@ $( document ).ready(function() {
 function signOut () {
     firebase.auth().signOut().then(function() {
         console.log('Signed Out');
+        sessionStorage.removeItem('userInfo');
         window.location.href = './landing.html';
       }, function(error) {
         console.error('Sign Out Error', error);

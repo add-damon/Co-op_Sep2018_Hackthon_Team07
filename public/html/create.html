@@ -46,7 +46,7 @@
             <div id='group-name-box' class="form-group row">
                 <label class="col-sm-2 col-form-label">Group Name</label>
                 <div class="col-sm-10">
-                    <input id='group-name' class="form-control" type='text' placeholder="Group Name">
+                    <input id='group-name' class="form-control" type='text' placeholder="Group Name" required>
                 </div>
             </div>
 
@@ -70,21 +70,21 @@
             <div id='email-box' class="form-group row">
                 <label class="col-sm-2 col-form-label">Email</label>
                 <div class="col-sm-10">
-                    <input id='email' class="form-control" type='text' placeholder="Email">
+                    <input id='email' class="form-control" type='text' placeholder="Email" required>
                 </div>
             </div>
 
             <div id='max-box' class="form-group row">
                 <label class="col-sm-2 col-form-label">Limit</label>
                 <div class="col-sm-10">
-                    <input id='max' class="form-control" type='number' placeholder="Max Number of People">
+                    <input id='max' class="form-control" type='number' placeholder="Max Number of People" required>
                 </div>
             </div>
 
             <div id='type-box' class="form-group row">
                 <label class="col-sm-2 col-form-label">Type</label>
                 <div class="col-sm-10">
-                    <select id='type' class="form-control">
+                    <select id='type' class="form-control" required>
                         <option>Vegan</option>
                         <option>Vegetarian</option>
                         <option>Carnivorous</option>
@@ -99,7 +99,7 @@
             <div id='time-box' class="form-row">
                 <div class="form-group col-md-6">
                     <label>Day</label>
-                    <select id='day' class="form-control">
+                    <select id='day' class="form-control" required>
                         <option>Monday</option>
                         <option>Tuesday</option>
                         <option>Wednesday</option>
@@ -112,13 +112,13 @@
 
                 <div class="form-group col-md-6">
                     <label>Time</label>
-                    <input id='time' class="form-control" type='time' placeholder="">
+                    <input id='time' class="form-control" type='time' placeholder="" required>
                 </div>
             </div>
 
             <div id='description-box' class="form-row">
                 <label>Description</label>
-                <textarea id='description' class="form-control" cols='80' rows='6' placeholder="Description: Tell us a little about yourself"></textarea>
+                <textarea id='description' class="form-control" cols='80' rows='6' placeholder="Description: Tell us a little about yourself" required></textarea>
             </div>
 
             <a class="btn btn-primary" href=# id="submit-button" role="button">Create</a>

@@ -124,14 +124,3 @@ function readPostFirebaseInfo (name) {
 document.getElementById('overlay').onclick = function () {
   turnOffOverlay();
 }
-
-function signOut () {
-    firebase.auth().signOut().then(function() {
-        console.log('Signed Out');
-        window.location.href = '/html/landing.html';
-      }, function(error) {
-        console.error('Sign Out Error', error);
-      });
-}
-
-document.getElementById('sign-out').onclick = signOut;

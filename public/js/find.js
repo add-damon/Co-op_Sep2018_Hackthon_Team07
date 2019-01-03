@@ -69,10 +69,6 @@ $(function () {
     td_max.text(info.groupMax);
     newRow.append(td_max);
 
-
-
-
-
     var td_button = $('<td></td>');
     td_button.html('<button class="btn btn-primary btn-sm">Request</button>');
     td_button.click(function () {
@@ -81,15 +77,7 @@ $(function () {
     newRow.append(td_button);
   }
 
-  $('#sign-out').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
-    firebase.auth().signOut();
-    window.location.href = "./landing.html";
-  });
 });
-
-
 
 function turnOnOverlay() {
   document.getElementById('overlay').style.display = 'block';

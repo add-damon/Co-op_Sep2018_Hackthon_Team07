@@ -31,10 +31,11 @@ $(function() {
     td_name.text(info.groupName);
 
     td_name.click(function () {
-      turnOnOverlay();
       window.sessionStorage.setItem("groupPost", td_name.id)
-      let x = window.sessionStorage.getItem("groupPost");
-      console.log(x);
+      let postName = window.sessionStorage.getItem("groupPost");
+
+      turnOnOverlay();
+      
     })
     
     td_name.id = info.groupName;
@@ -82,6 +83,23 @@ function turnOnOverlay() {
 
 function turnOffOverlay() {
   document.getElementById('overlay').style.display = 'none';
+}
+
+// for specific group
+function readPostFirebaseInfo (name) {
+  database.ref('groups/' + name).on('value', function (snapshot) {
+    let postInfo = {
+      postName: name,
+      postEmail: snapshot.child('email').val(),
+      postLocation: snapshot.child('location').val(),
+      postMax: snapshot.child('max').val(),
+      postType: snapshot.child('type').val(),
+      postTime: snapshot.child('time').val(),
+      postDate: snapshot.child('date').val(),
+    };
+  });
+  
+  return postInfo;
 }
 
 document.getElementById('overlay').onclick = function () {

@@ -19,6 +19,7 @@ $(function () {
         groupType: snapshot.child('type').val(),
         groupTime: snapshot.child('time').val(),
         groupDate: snapshot.child('date').val(),
+        groupDay: snapshot.child('day').val(),
       };
       addRow(groupInfo);
     });
@@ -31,7 +32,7 @@ $(function () {
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
 
-    td_name.click(function () {
+    newRow.click(function () {
       window.sessionStorage.setItem("groupPost", td_name.id)
       let postName = window.sessionStorage.getItem("groupPost").replace('\n', '');
 
@@ -50,19 +51,27 @@ $(function () {
 
     var td_type = $('<td></td>');
     td_type.text(info.groupType);
+    td_type.addClass('mealType');
     newRow.append(td_type);
 
-    var td_max = $('<td></td>');
-    td_max.text(info.groupMax);
-    newRow.append(td_max);
+    var td_Day = $('<td></td>');
+    td_Day.text(info.groupDay);
+    newRow.append(td_Day);
+
 
     var td_time = $('<td></td>');
     td_time.text(info.groupTime);
+    td_time.addClass('timeToMeet');
     newRow.append(td_time);
 
-    var td_date = $('<td></td>');
-    td_date.text(info.groupDate);
-    newRow.append(td_date);
+    var td_max = $('<td></td>');
+    td_max.addClass('numberOfPeople');
+    td_max.text(info.groupMax);
+    newRow.append(td_max);
+
+
+
+
 
     var td_button = $('<td></td>');
     td_button.html('<button class="btn btn-primary btn-sm">Request</button>');
@@ -109,19 +118,13 @@ function readPostFirebaseInfo(name) {
 
     document.getElementById('group-name').innerHTML = postInfo.postName;
     document.getElementById('location').innerHTML = postInfo.postLocation;
-    document.getElementById('meeting-time').innerHTML = postInfo.postDay + ' ' + postInfo.postTime;
     document.getElementById('diet-type').innerHTML = postInfo.postDiet;
+    document.getElementById('meeting-days').innerHTML = postInfo.postDay + 's';
+    document.getElementById('meeting-time').innerHTML = postInfo.postTime;
+    document.getElementById('limit').innerHTML = postInfo.postMax;
     document.getElementById('description').innerHTML = postInfo.postDescription;
     document.getElementById('members').innerHTML = 'Members:'
-
-    // document.getElementById('group-name').innerHTML = 'Group Name: ' + postInfo.postName;
-    // document.getElementById('location').innerHTML = 'Location: ' + postInfo.postLocation;
-    // document.getElementById('meeting-time').innerHTML = 'Meeting Time (24H Time): ' + postInfo.postDay + ' ' + postInfo.postTime;
-    // document.getElementById('diet-type').innerHTML = 'Diet Type: ' + postInfo.postDiet;
-    // document.getElementById('description').innerHTML = 'Description: ' + postInfo.postDescription;
-    // document.getElementById('members').innerHTML = 'Members:'
   });
-
 }
 
 document.getElementById('overlay').onclick = function () {

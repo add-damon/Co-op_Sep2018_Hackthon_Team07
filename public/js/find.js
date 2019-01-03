@@ -1,16 +1,16 @@
-$(function() {
+$(function () {
   const database = firebase.database();
 
   let orderByDateRef = database.ref('groups/').orderByChild('dateForOrder');
-  orderByDateRef.once('value').then(function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
+  orderByDateRef.once('value').then(function (snapshot) {
+    snapshot.forEach(function (childSnapshot) {
       let groupName = childSnapshot.key;
       getGroupInfo(groupName);
     });
   });
 
   function getGroupInfo(name) {
-    database.ref('groups/' + name).once('value').then(function(snapshot) {
+    database.ref('groups/' + name).once('value').then(function (snapshot) {
       let groupInfo = {
         groupName: name,
         groupEmail: snapshot.child('email').val(),
@@ -23,7 +23,7 @@ $(function() {
       addRow(groupInfo);
     });
   }
-  
+
   function addRow(info) {
     var newRow = $('<tr></tr>');
     $('#groupsInfo').prepend(newRow);
@@ -37,10 +37,10 @@ $(function() {
 
       readPostFirebaseInfo(postName);
 
-      setTimeout(function() {turnOnOverlay();}, 200);
-      
+      setTimeout(function () { turnOnOverlay(); }, 200);
+
     });
-    
+
     td_name.id = info.groupName;
     newRow.append(td_name);
 
@@ -65,14 +65,14 @@ $(function() {
     newRow.append(td_date);
 
     var td_button = $('<td></td>');
-    td_button.html('<button>Request</button>');
+    td_button.html('<button class="btn btn-primary btn-sm">Request</button>');
     td_button.click(function () {
       window.open('mailto:' + info.groupEmail);
     });
     newRow.append(td_button);
   }
 
-  $('#sign-out').click(function(e) {
+  $('#sign-out').click(function (e) {
     e.preventDefault();
     e.stopPropagation();
     firebase.auth().signOut();
@@ -91,7 +91,7 @@ function turnOffOverlay() {
 }
 
 // for specific group
-function readPostFirebaseInfo (name) {
+function readPostFirebaseInfo(name) {
 
   //console.log('groups/' + name);
   firebase.database().ref('groups/' + name).on('value', function (snapshot) {

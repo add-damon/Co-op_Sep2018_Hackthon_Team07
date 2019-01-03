@@ -1,7 +1,7 @@
 // reference to the profile section of the database
 var userInfo = JSON.parse(sessionStorage.userInfo);
 let uid = userInfo.uid.replace('\n', '');
-let profileFirebaseRef = firebase.database().ref("users/" + 'jlW30W7ieYYmZCDZQ33lmwYyL122');
+let profileFirebaseRef = firebase.database().ref("users/" + uid);
 
 
 //Display current profile

@@ -32,7 +32,12 @@ $(function() {
 
     td_name.click(function () {
       turnOnOverlay();
+      window.sessionStorage.setItem("groupPost", td_name.id)
+      let x = window.sessionStorage.getItem("groupPost");
+      console.log(x);
     })
+    
+    td_name.id = info.groupName;
     newRow.append(td_name);
 
     var td_location = $('<td></td>');

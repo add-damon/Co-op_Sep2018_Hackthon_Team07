@@ -1,3 +1,8 @@
+var userInfo = JSON.parse(sessionStorage.userInfo);
+let email = userInfo.email;
+
+document.getElementById('email').value = email;
+
 // reference to the groups section of the database
 let groupsFirebaseRef = firebase.database().ref('groups/');
 

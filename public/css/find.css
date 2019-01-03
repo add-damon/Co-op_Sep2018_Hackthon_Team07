@@ -1,39 +1,37 @@
 table {
-  width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-collapse: collapse;
 }
 
-thead tr, table tbody tr:nth-child(even) {
-  background-color: lightblue;
-}
+
 
 tbody tr:hover {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 span.triangles {
-  padding-left: .5em;
+    padding-left: .5em;
 }
 
 #overlay {
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.9);
-  z-index: 2;
-  cursor: pointer;
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 2;
+    cursor: pointer;
 }
 
-.navbar-nav > li{
-  padding-left: 18px;
-  padding-right: 18px;
+.navbar-nav > li {
+    padding-left: 18px;
+    padding-right: 18px;
 }
 
 #logo {
@@ -48,6 +46,14 @@ span.triangles {
 }
 
 #groups {
-    width:80vw;
-    margin: 100px auto 0;
+    width: 60vw;
+    margin: 25vh auto 0;
+}
+
+#background {
+    background-image: url(cookSide.jpeg);
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
 }

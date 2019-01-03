@@ -29,6 +29,10 @@ $(function() {
 
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
+
+    td_name.click(function () {
+      turnOnOverlay();
+    })
     newRow.append(td_name);
 
     var td_location = $('<td></td>');
@@ -57,9 +61,24 @@ $(function() {
 
     var td_button = $('<td></td>');
     td_button.html('<button>Request</button>');
+    td_button.click(function () {
+      window.open('mailto:' + info.groupEmail);
+    });
     newRow.append(td_button);
 
   }
 
   
 });
+
+function turnOnOverlay() {
+  document.getElementById('overlay').style.display = 'block';
+}
+
+function turnOffOverlay() {
+  document.getElementById('overlay').style.display = 'none';
+}
+
+document.getElementById('overlay').onclick = function () {
+  turnOffOverlay();
+}

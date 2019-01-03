@@ -1,6 +1,11 @@
 // reference to the groups section of the database
 let groupsFirebaseRef = firebase.database().ref('groups/');
 
+function adjustTime(num) {
+    if (num < 10) {
+        return '0' + num;
+    }
+}
 function createGroupInformation() {
     // Create the object to hold all the information
     let groupInfo = new Object();
@@ -12,6 +17,14 @@ function createGroupInformation() {
     let maxNumber = document.getElementById('max').value;
     let type = document.getElementById('type').value;
     let description = document.getElementById('description').value;
+    let day = document.getElementById('day').value;
+    let time = document.getElementById('time').value;
+
+    let date = new Date();
+
+    let dd = date.getDay();
+    let mm = adjustTime(date.getMonth() + 1);
+    let yyyy = date.getFullYear();
 
     // console.log(groupName);
     // console.log(location);
@@ -23,7 +36,10 @@ function createGroupInformation() {
     nameObj.max = maxNumber;
     nameObj.type = type;
     nameObj.description = description;
-
+    nameObj.date = dd + '/' + mm + '/' + yyyy;
+    nameObj.day = day;
+    nameObj.time = time;
+    
     groupInfo[groupName] = nameObj;
 
     return groupInfo;

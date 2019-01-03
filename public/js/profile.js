@@ -51,7 +51,7 @@ $("#submit-button").on("click", function (e) {
 
 let email = userInfo.email;
 let numberMatched = 0
-let groupName;
+let groupNames = []
 let yourGroups = document.getElementById('your-groups');
 
 // checks if the database contains any groups with the email = the current user
@@ -61,7 +61,7 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
         // console.log(userEmail);
         if (userEmail === email) {
             numberMatched += 1;
-            groupName = childSnapshot.key;
+            groupNames.push(childSnapshot.key);
         }
     })
 })
@@ -78,7 +78,7 @@ setTimeout(function () {
             console.log(row.id);
     
             let cell1 = row.insertCell(0);
-            cell1.innerHTML = groupName;
+            cell1.innerHTML = groupNames[i];
     
             let cell2 = row.insertCell(1);
             let anchor = document.createElement('a');
@@ -94,6 +94,13 @@ setTimeout(function () {
             let cell4 = row.insertCell(3);
             let delbutton = document.createElement('button');
             delbutton.innerHTML = 'del';
+            delbutton.onclick = function () {
+                delFromFirebase(groupNames[i]);
+                setTimeout(function() {
+                    let rowToBeRemoved = document.getElementById(row.id);
+                    rowToBeRemoved.parentNode.removeChild(rowToBeRemoved);
+                }, 500);
+            }
             cell4.appendChild(delbutton);
     
         }
@@ -102,5 +109,10 @@ setTimeout(function () {
     }
 
 }, 1000);
+
+function delFromFirebase(name) {
+    let groupRef = firebase.database().ref('groups/');
+    groupRef.child(name).remove();
+}
 
 

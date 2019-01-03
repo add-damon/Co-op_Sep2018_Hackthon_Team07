@@ -27,6 +27,7 @@ span.triangles {
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 2;
     cursor: pointer;
+    color: white;
 }
 
 .navbar-nav > li {
@@ -57,3 +58,5 @@ span.triangles {
     background-repeat: no-repeat;
     height: 100vh;
 }
+
+

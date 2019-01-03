@@ -1,4 +1,3 @@
-// A $( document ).ready() block.
 $( document ).ready(function() {
     
     initApp = function() {
@@ -17,7 +16,9 @@ $( document ).ready(function() {
                     //Save user info in Session Storage
                     var userInfo = {'uid': uid, 'name':displayName, 'email':email};
                     sessionStorage.setItem('userInfo', JSON.stringify(user));
-
+                    
+                    $("#profile").text(userInfo.name);
+                    $("#profile").css("color","green");
                 });
             } else {
                 sessionStorage.removeItem('userInfo');
@@ -33,8 +34,9 @@ $( document ).ready(function() {
         initApp();
     });    
     
-    $("#logout").on("click", function(e) {         // Logout button listener
-        var promise = firebase.auth().signOut();          // Firebase Authenticated User Signout 
+    // Logout button listener
+    $("#logout").on("click", function(e) {
+        var promise = firebase.auth().signOut();
         promise.then(function(){
             sessionStorage.removeItem('userInfo');
             window.location.href='/html/main.html';

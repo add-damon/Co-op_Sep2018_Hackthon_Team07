@@ -31,7 +31,10 @@ $(function() {
 
     td_name.click(function () {
       turnOnOverlay();
+      console.log(td_name.id);
     })
+    
+    td_name.id = info.groupName;
     newRow.append(td_name);
 
     var td_email = $('<td></td>');

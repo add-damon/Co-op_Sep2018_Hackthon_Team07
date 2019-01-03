@@ -3,14 +3,12 @@ var userInfo = JSON.parse(sessionStorage.userInfo);
 let uid = userInfo.uid;
 let profileFirebaseRef = firebase.database().ref("users/" + uid);
 
-console.log(userInfo);
-
 
 //Display current profile
 profileFirebaseRef.on(
     "value",   
     function(snap) {
-        console.log(JSON.stringify(snap.val()));
+        //console.log(JSON.stringify(snap.val()));
 
         $("#user-name").val(snap.val().name);
         $("#email").val(snap.val().email);

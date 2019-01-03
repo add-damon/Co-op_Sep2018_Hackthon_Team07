@@ -65,7 +65,7 @@ $(function() {
     newRow.append(td_date);
 
     var td_button = $('<td></td>');
-    td_button.html('<button>Request</button>');
+    td_button.html('<button class="btn btn-primary btn-sm">Request</button>');
     td_button.click(function () {
       window.open('mailto:' + info.groupEmail);
     });

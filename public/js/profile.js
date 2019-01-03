@@ -70,26 +70,8 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
 
 // Create table elements if numberMatched is greater than 0
 setTimeout(function () {
-    // console.log('hi')
-    // console.log(numberMatched)
-    for (let i = 0; i < numberMatched; i++) {
-        let row = yourGroups.insertRow(i);
-        row.id = 'row' + i;
-        console.log(row.id);
-
-        let cell1 = row.insertCell(0);
-        cell1.innerHTML = groupNames[i];
-
-        let cell2 = row.insertCell(1);
-        let anchor = document.createElement('a');
-        anchor.innerHTML = 'edit';
-        anchor.href = 'https://www.google.com/';
-        cell2.appendChild(anchor);
-
-        let cell3 = row.insertCell(2);
-        let delbutton = document.createElement('button');
-        delbutton.innerHTML = 'del';
-        cell3.appendChild(delbutton);
+    console.log('hi')
+    console.log(numberMatched)
 
     if (numberMatched > 0) {
         for (let i = 0; i < numberMatched; i++) {
@@ -128,7 +110,7 @@ setTimeout(function () {
         yourGroups.innerHTML = 'You are not the owner of any groups';
     }
 
-}}, 1000);
+}, 1000);
 
 function delFromFirebase(name) {
     let groupRef = firebase.database().ref('groups/');

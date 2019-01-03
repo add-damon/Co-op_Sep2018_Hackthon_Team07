@@ -31,7 +31,7 @@ $(function () {
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
 
-    td_name.click(function () {
+    newRow.click(function () {
       window.sessionStorage.setItem("groupPost", td_name.id)
       let postName = window.sessionStorage.getItem("groupPost").replace('\n', '');
 
@@ -50,14 +50,17 @@ $(function () {
 
     var td_type = $('<td></td>');
     td_type.text(info.groupType);
+    td_type.addClass('mealType');
     newRow.append(td_type);
 
     var td_max = $('<td></td>');
+    td_max.addClass('numberOfPeople');
     td_max.text(info.groupMax);
     newRow.append(td_max);
 
     var td_time = $('<td></td>');
     td_time.text(info.groupTime);
+    td_time.addClass('timeToMeet');
     newRow.append(td_time);
 
     var td_date = $('<td></td>');
@@ -121,7 +124,6 @@ function readPostFirebaseInfo(name) {
     // document.getElementById('description').innerHTML = 'Description: ' + postInfo.postDescription;
     // document.getElementById('members').innerHTML = 'Members:'
   });
-
 }
 
 document.getElementById('overlay').onclick = function () {

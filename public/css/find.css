@@ -73,3 +73,19 @@ span#sortByDateIcon:hover {
     background-repeat: no-repeat;
     height: 100vh;
 } */
+
+@media only screen and (max-width: 992px) {
+  div#groups {
+    width: 100%;
+  }
+
+  .numberOfPeople, .timeToMeet{
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .table {
+    font-size: .8em;
+  }
+}

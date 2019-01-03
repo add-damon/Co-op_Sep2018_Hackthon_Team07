@@ -128,7 +128,7 @@ setTimeout(function () {
         yourGroups.innerHTML = 'You are not the owner of any groups';
     }
 
-}}, 3000);
+}}, 1000);
 
 function delFromFirebase(name) {
     let groupRef = firebase.database().ref('groups/');

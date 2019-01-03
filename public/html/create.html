@@ -42,74 +42,91 @@
     <!-- End -->
 
     <div id='user-input'>
-        <div id='group-name-box'>
-            <label>Group Name:</label>
-            <input id='group-name' type='text' placeholder="Group Name">
-        </div>
+        <form>
+            <div id='group-name-box' class="form-group row">
+                <label class="col-sm-2 col-form-label">Group Name</label>
+                <div class="col-sm-10">
+                    <input id='group-name' class="form-control" type='text' placeholder="Group Name" required="required">
+                </div>
+            </div>
 
-        <div id='location-box'>
-            <label>Location:</label>
-            <select id='location'>
-                <option>Vancouver</option>
-                <option>North Vancouver</option>
-                <option>Richmond</option>
-                <option>Burnaby</option>
-                <option>New Westminister</option>
-                <option>Coquitlam</option>
-                <option>Port Coquitlam</option>
-                <option>Surrey</option>
-                <option>West Vancouver</option>
-            </select>
-        </div>
+            <div id='location-box' class="form-group row">
+                <label class="col-sm-2 col-form-label">Location</label>
+                <div class="col-sm-10">
+                    <select id='location' class="form-control" requied="required">
+                        <option>Vancouver</option>
+                        <option>North Vancouver</option>
+                        <option>Richmond</option>
+                        <option>Burnaby</option>
+                        <option>New Westminister</option>
+                        <option>Coquitlam</option>
+                        <option>Port Coquitlam</option>
+                        <option>Surrey</option>
+                        <option>West Vancouver</option>
+                    </select>
+                </div>
+            </div>
 
-        <div id='email-box'>
-            <label>Email:</label>
-            <input id='email' type='text' placeholder="Email">
-        </div>
+            <div id='email-box' class="form-group row">
+                <label class="col-sm-2 col-form-label">Email</label>
+                <div class="col-sm-10">
+                    <input id='email' class="form-control" type='text' placeholder="Email" required="required">
+                </div>
+            </div>
 
-        <div id='max-box'>
-            <label>Location:</label>
-            <input id='max' type='text' placeholder="Max Number of People">
-        </div>
+            <div id='max-box' class="form-group row">
+                <label class="col-sm-2 col-form-label">Limit</label>
+                <div class="col-sm-10">
+                    <input id='max' class="form-control" type='number' placeholder="Max Number of People" required="required">
+                </div>
+            </div>
 
-        <div id='type-box'>
-            <label>Type:</label>
-            <select id='type'>
-                <option>Vegan</option>
-                <option>Vegetarian</option>
-                <option>Carnivorous</option>
-                <option>Omnivorous</option>
-                <option>Dairy-Free</option>
-                <option>Prescatarian-</option>
-                <option>keto</option>
-            </select>
-        </div>
+            <div id='type-box' class="form-group row">
+                <label class="col-sm-2 col-form-label">Type</label>
+                <div class="col-sm-10">
+                    <select id='type' class="form-control" required="required">
+                        <option>Vegan</option>
+                        <option>Vegetarian</option>
+                        <option>Carnivorous</option>
+                        <option>Omnivorous</option>
+                        <option>Dairy-Free</option>
+                        <option>Prescatarian</option>
+                        <option>keto</option>
+                    </select>
+                </div>
+            </div>
 
-        <div id='time-box'>
-            <label>Day:</label>
-                <select id='day'>
-                    <option>Monday</option>
-                    <option>Tuesday</option>
-                    <option>Wednesday</option>
-                    <option>Thursday</option>
-                    <option>Friday</option>
-                    <option>Saturday</option>
-                    <option>Sunday</option>
-                </select>
-            
-            <label>Time:</label>
-                <input id='time' type='time' placeholder="">
-        </div>
+            <div id='time-box' class="form-row">
+                <div class="form-group col-md-6">
+                    <label>Day</label>
+                    <select id='day' class="form-control" required="required">
+                        <option>Monday</option>
+                        <option>Tuesday</option>
+                        <option>Wednesday</option>
+                        <option>Thursday</option>
+                        <option>Friday</option>
+                        <option>Saturday</option>
+                        <option>Sunday</option>
+                    </select>
+                </div>
 
-        <div id='description-box'>
-            <label>Description:</label>
-            <textarea id='description' cols='80' rows='6' placeholder="Description: Tell us a little about yourself"></textarea>
-        </div>
+                <div class="form-group col-md-6">
+                    <label>Time</label>
+                    <input id='time' class="form-control" type='time' placeholder="" required="required">
+                </div>
+            </div>
 
+            <div id='description-box' class="form-row">
+                <label>Description</label>
+                <textarea id='description' class="form-control" cols='80' rows='6' placeholder="Description: Tell us a little about yourself" required="required"></textarea>
+            </div>
+
+            <button id='submit-button' class="btn btn-primary">Create</button>
+        </form>
 
     </div>
 
-    <button id='submit-button'>Create Group</button>
+
 
     <script src='../js/create.js'></script>
 

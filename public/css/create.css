@@ -15,3 +15,10 @@ label {
     padding-left: 18px;
     padding-right: 18px;
 }
+
+#user-input {
+    margin: 0 auto;
+    width: 70%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

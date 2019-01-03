@@ -4,11 +4,11 @@ $(function() {
   database.ref('groups/').once('value').then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       let groupName = childSnapshot.key;
-      displayGroupInfo(groupName);
+      getGroupInfo(groupName);
     });
   });
 
-  function displayGroupInfo(name) {
+  function getGroupInfo(name) {
     database.ref('groups/' + name).once('value').then(function(snapshot) {
       let groupInfo = {
         groupName: name,
@@ -32,7 +32,12 @@ $(function() {
 
     td_name.click(function () {
       turnOnOverlay();
+      window.sessionStorage.setItem("groupPost", td_name.id)
+      let x = window.sessionStorage.getItem("groupPost");
+      console.log(x);
     })
+    
+    td_name.id = info.groupName;
     newRow.append(td_name);
 
     var td_location = $('<td></td>');
@@ -67,8 +72,6 @@ $(function() {
     newRow.append(td_button);
 
   }
-
-  
 });
 
 function turnOnOverlay() {

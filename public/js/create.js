@@ -50,8 +50,16 @@ function addGroupToFirebase(obj) {
 
 }
 
+// function hasValue(x) {
+//     if (x.value) {
+//         return true;
+//     }
+// }
+
 // Add onclick function to submit button
 document.getElementById('submit-button').onclick = function() {
+    let ids = ['group-name', 'email', 'max'];
+
     let groupObj = createGroupInformation();
     setTimeout(function () {
         addGroupToFirebase(groupObj);

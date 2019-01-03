@@ -109,7 +109,7 @@ $(function () {
       document.getElementById('meeting-time').innerHTML = postInfo.postTime;
       document.getElementById('limit').innerHTML = postInfo.postMax;
       document.getElementById('description').innerHTML = postInfo.postDescription;
-      document.getElementById('members').innerHTML = 'Members:';
+      document.getElementById('members').innerHTML = ' ';
     });
   }
   

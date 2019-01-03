@@ -10,10 +10,44 @@
     background-color: rgba(0, 0, 0, 0.9);
     z-index: 2;
     cursor: pointer;
-    color: black;
+    color: white;
 }
 
+input {
+    padding: 3px;
+}
 
+label {
+    padding: 3px;
+}
+
+#description {
+    display: block;
+    margin: 10px;
+}
+
+.navbar-nav > li{
+    padding-left: 18px;
+    padding-right: 18px;
+}
+
+#user-input {
+    margin: 0 auto;
+    width: 70%;
+    padding-top: 50px;
+    margin-bottom: 50px;
+}
+
+#logo {
+
+    width: 50px;
+    height: 50px;
+    background-image: url(logo.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    float: left;
+}
 
 
 

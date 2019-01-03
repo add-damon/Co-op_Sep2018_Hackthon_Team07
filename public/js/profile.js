@@ -99,12 +99,12 @@ setTimeout(function () {
             delbutton.onclick = function () {
                 delFromFirebase(groupNames[i]);
                 setTimeout(function() {
-                    let rowToBeRemoved = document.getElementById(row.id);
+                    let rowToBeRemoved = document.getElementById('row' + i);
+                    console.log(rowToBeRemoved);
                     rowToBeRemoved.parentNode.removeChild(rowToBeRemoved);
                 }, 500);
             }
             cell4.appendChild(delbutton);
-    
         }
     } else {
         yourGroups.innerHTML = 'You are not the owner of any groups';

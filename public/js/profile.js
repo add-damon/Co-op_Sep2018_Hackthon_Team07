@@ -33,7 +33,7 @@ function generateProfileInformation() {
     return formInfoObj;
 }
 
-//Firebase database updating
+//Firebase database updating user profile
 $("#submit-button").on("click", function (e) {
     let profileInfo = generateProfileInformation();
 
@@ -47,21 +47,18 @@ $("#submit-button").on("click", function (e) {
     });
 });
 
-// Get Current User Information
-
+// Get Current User Email Information and compare with the email that each group contains
 let email = userInfo.email;
 let numberMatched = 0
 let groupNames = []
 let yourGroups = document.getElementById('your-groups');
 
 // checks if the database contains any groups with the email = the current user
+// if so, store the name in groupNames
 firebase.database().ref('groups/').on('value', function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
         let userEmail = childSnapshot.val().email;
-        // console.log(userEmail);
         if (userEmail === email) {
-            // console.log('yo');
-            yourGroups.innerHTML = '';
             numberMatched += 1;
             groupNames.push(childSnapshot.key);
         }
@@ -70,8 +67,6 @@ firebase.database().ref('groups/').on('value', function (snapshot) {
 
 // Create table elements if numberMatched is greater than 0
 setTimeout(function () {
-    console.log('hi')
-    console.log(numberMatched)
 
     if (numberMatched > 0) {
         for (let i = 0; i < numberMatched; i++) {
@@ -113,11 +108,11 @@ setTimeout(function () {
 
 }, 1000);
 
+// delete group information from firebase
 function delFromFirebase(name) {
     let groupRef = firebase.database().ref('groups/');
     groupRef.child(name).remove();
 }
 
-// Add Member Feature
 
 

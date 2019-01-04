@@ -1,6 +1,7 @@
 $(function () {
   const database = firebase.database();
 
+  // for every group in firebase, run the getGroupInfo function
   let orderByDateRef = database.ref('groups/').orderByChild('dateForOrder');
   orderByDateRef.once('value').then(function (snapshot) {
     snapshot.forEach(function (childSnapshot) {
@@ -9,6 +10,8 @@ $(function () {
     });
   });
 
+  // read firebase using the name ref given, create an object using that information
+  // initiate addRow function
   function getGroupInfo(name) {
     database.ref('groups/' + name).once('value').then(function (snapshot) {
       let groupInfo = {
@@ -25,6 +28,7 @@ $(function () {
     });
   }
 
+  // Takes an object info, creates a row and add group information
   function addRow(info) {
     var newRow = $('<tr></tr>');
     $('#groupsInfo').prepend(newRow);
@@ -32,6 +36,7 @@ $(function () {
     var td_name = $('<td></td>');
     td_name.text(info.groupName);
 
+    // each row can be clicked to display an overlay with additional group information
     newRow.click(function () {
       window.sessionStorage.setItem("groupPost", td_name.id)
       let postName = window.sessionStorage.getItem("groupPost").replace('\n', '');
@@ -86,6 +91,8 @@ $(function () {
   }
   
   // for specific group
+  // used to read information on a specific group
+  // used to update information on overlay
   function readPostFirebaseInfo(name) {
   
     //console.log('groups/' + name);

@@ -1,5 +1,5 @@
+// Checks for change in user state, login/logout
 $( document ).ready(function() {
-
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
@@ -12,7 +12,7 @@ $( document ).ready(function() {
             var phoneNumber = user.phoneNumber;
             var providerData = user.providerData;
 
-            // 
+            // update firebase database with user information
             firebase.database().ref("users/" + user.uid).update(
                 {
                     uid: uid,
@@ -35,6 +35,7 @@ $( document ).ready(function() {
                 $("#profile").css("color","green");
             });
         } else {
+            // used for logout
             sessionStorage.removeItem('userInfo');
             // Page is redirected.
             window.location.href='../html/landing.html';
@@ -53,6 +54,7 @@ $( document ).ready(function() {
           });
     }
     
+    // signout button
     document.getElementById('sign-out').onclick = signOut;
 });
 

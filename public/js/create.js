@@ -1,16 +1,21 @@
+// Get user information stored in session storage
 var userInfo = JSON.parse(sessionStorage.userInfo);
-let email = userInfo.email;
 
+// get user email and set default email for form submission
+let email = userInfo.email;
 document.getElementById('email').value = email;
 
 // reference to the groups section of the database
 let groupsFirebaseRef = firebase.database().ref('groups/');
 
+// adjust the date format etc.. march -> 3rd month -> 3 -> 03
 function adjustTime(num) {
     if (num < 10) {
         return '0' + num;
     }
 }
+
+
 function createGroupInformation() {
     // Create the object to hold all the information
     let groupInfo = new Object();
@@ -31,11 +36,6 @@ function createGroupInformation() {
     let mm = adjustTime(date.getMonth() + 1);
     let yyyy = date.getFullYear();
 
-    // console.log(groupName);
-    // console.log(location);
-    // console.log(email);
-    // console.log(maxNumber);
-
     nameObj.location = location;
     nameObj.email = email;
     nameObj.max = maxNumber;
@@ -51,11 +51,13 @@ function createGroupInformation() {
     return groupInfo;
 }
 
+// update object into firebase. 
 function addGroupToFirebase(obj) {
     groupsFirebaseRef.update(obj);
 
 }
 
+// map function to check if all inputs are filled in
 function hasValue(x) {
     if (document.getElementById(x).value) {
         return true;
@@ -66,10 +68,10 @@ function hasValue(x) {
 
 // Add onclick function to submit button
 function submitFunction () {
+
+    // check if all required input fields are inputted
     let ids = ['group-name', 'email', 'max', 'time', 'description'];
-
     let booleanList = ids.map(hasValue);
-
     let numberOfTrues = 0;
 
     for (let i = 0; i < booleanList.length; i++) {
@@ -78,8 +80,11 @@ function submitFunction () {
         }
     }
 
+    // if all inputs are entered, continue with click event
     if (numberOfTrues === 5) {
         let groupObj = createGroupInformation();
+
+        // setTimeout used to ensure firebase asynchronous call is run first
         setTimeout(function () {
             addGroupToFirebase(groupObj);
             alert('You have successfully added a group!');
